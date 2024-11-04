@@ -67,6 +67,8 @@ $ ip -n red link
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
 ```
 
+![image](https://github.com/user-attachments/assets/535cd25b-cd4c-4507-93a0-8c418a27e0ec)
+
 ## ARP and Routing Table
 
 > On the host
@@ -146,6 +148,7 @@ Address                  HWtype  HWaddress           Flags Mask            Iface
 192.168.15.1             ether   92:d1:52:38:c8:bc   C                     veth-blue
 
 ```
+![image](https://github.com/user-attachments/assets/df4885be-710b-4245-9b66-d685c00a70d2)
 
 - Delete the link.
 ```
