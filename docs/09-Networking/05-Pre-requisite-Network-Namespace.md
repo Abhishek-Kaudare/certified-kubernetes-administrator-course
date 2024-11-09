@@ -189,12 +189,18 @@ $ ip link
 ```
 $ ip link set dev v-net-0 up
 ```
+
+![image](https://github.com/user-attachments/assets/cdca4024-4151-4040-8e2c-11fcc9e92fdc)
+
 - To connect network namespace to the bridge. Creating a virtual cabel
 ```
 $ ip link add veth-red type veth peer name veth-red-br
 
 $ ip link add veth-blue type veth peer name veth-blue-br
 ```
+
+![image](https://github.com/user-attachments/assets/8922ab04-38a9-4d6d-84f3-cc3bfa02ec97)
+
 - Set with the network namespaces
 ```
 $ ip link set veth-red netns red
@@ -217,10 +223,16 @@ $ ip -n red link set veth-red up
 
 $ ip -n blue link set veth-blue up
 ```
-- To add an IP address
+
+![image](https://github.com/user-attachments/assets/ea97d522-d189-4577-bb35-579bde0b5f74)
+
+- To add an IP address to the Bridge so that the private network can be pinged from the host
 ```
 $ ip addr add 192.168.15.5/24 dev v-net-0
 ```
+
+![image](https://github.com/user-attachments/assets/a21f40da-35c2-4f9d-bce7-71da3721327d)
+
 - Turn it up added interfaces on the host
 ```
 $ ip link set dev veth-red-br up
@@ -232,26 +244,41 @@ $ ip link set dev veth-blue-br up
 $ ping 192.168.15.1
 ```
 
-> On the ns
+> On the network ns try connecting other host on the same LAN
 ```
-$ ip netns exec blue ping 192.168.1.1
+$ ip netns exec blue ping 192.168.1.3
 Connect: Network is unreachable
-
+```
+> As the connection is unreachable since the routing table has no info (Gateway) of the other host/network within the network ns
+```
 $ ip netns exec blue route
-
+Destination    Gateway  Genmask          Flags   Metriuc  Ref  Use  Iface
+192.168.15.0   0.0.0.0  255.255.2555.0   U       0        0      0  veth-blue 
+```
+> Gateway is system on local network that connects to other network. In this case since the bridge forms a private network within the host and is connected to host with interface this will act as a gateway. Since the host has multiple ips, one on LAN and one at the bridge. We need to use the IP on the bridge for routing. 
+```
 $ ip netns exec blue ip route add 192.168.1.0/24 via 192.168.15.5
 
+$ ip netns exec blue ping 192.168.1.3
+PING 192.168.1.1 (192.168.1.1) 56(84) bytes of data.
+```
+![image](https://github.com/user-attachments/assets/c2cf35dd-99a8-4530-bbb3-d8ac49f5498b)
+
+> The ping to the other host comes back empty because the other host doesnt knows where how to reach the container in the private network. We need to add a NAT to masquarade the network calls to the other host.
+```
 # Check the IP Address of the host
 $ ip a
 
-$ ip netns exec blue ping 192.168.1.1
-PING 192.168.1.1 (192.168.1.1) 56(84) bytes of data.
-
 $ iptables -t nat -A POSTROUTING -s 192.168.15.0/24 -j MASQUERADE
 
-$ ip netns exec blue ping 192.168.1.1
+$ ip netns exec blue ping 192.168.1.3
+```
+![image](https://github.com/user-attachments/assets/3e6bf5e7-3e3b-40d8-89aa-5400c6efedd6)
 
+> To connect to internet from the container in private network we need to add default route through the IP of the host connected to bridge.
+```
 $ ip netns exec blue ping 8.8.8.8
+Connect: Network is unreachable
 
 $ ip netns exec blue route
 
@@ -259,6 +286,7 @@ $ ip netns exec blue ip route add default via 192.168.15.5
 
 $ ip netns exec blue ping 8.8.8.8
 ```
+![image](https://github.com/user-attachments/assets/8f8d39ff-5fc0-463d-a5b8-fa04c6a9682f)
 
 - Adding port forwarding rule to the iptables
 
@@ -268,5 +296,6 @@ $ iptables -t nat -A PREROUTING --dport 80 --to-destination 192.168.15.2:80 -j D
 ```
 $ iptables -nvL -t nat
 ```
+![image](https://github.com/user-attachments/assets/130b4d52-8b36-43dd-8468-f78819f7913d)
 
 
