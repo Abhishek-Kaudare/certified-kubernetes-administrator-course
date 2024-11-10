@@ -102,7 +102,8 @@ KUBE-SEP-GEKJR4UBUI5ONAYW  all  --  anywhere             anywhere             /*
 $ cat /var/log/kube-proxy.log
 
 ```
-![Uploading image.png…]()
+![image](https://github.com/user-attachments/assets/fb73a1de-4c0e-4461-ac9a-ce35d1f7d5db)
+
 
 
 ## Kube-proxy (Default: IPTables)
