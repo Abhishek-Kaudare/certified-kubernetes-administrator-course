@@ -78,6 +78,8 @@ $ ps -aux | grep kube-apiserver
 service-cluster-ip-range=10.96.0.0/12
 
 ```
+![image](https://github.com/user-attachments/assets/1d446a3c-fc12-460b-870d-a931082a27df)
+
 
 ## To check the rules created by kube-proxy in the iptables
 
@@ -89,6 +91,8 @@ KUBE-MARK-MASQ  tcp  -- !10.244.0.0/16        10.101.67.139        /* default/lo
 KUBE-SVC-SDGXHD6P3SINP7QJ  tcp  --  anywhere             10.101.67.139        /* default/local-cluster: cluster IP */ tcp dpt:http
 KUBE-SEP-GEKJR4UBUI5ONAYW  all  --  anywhere             anywhere             /* default/local-cluster: */
 ```
+![image](https://github.com/user-attachments/assets/cf2d267b-399e-4296-8472-9e9a2ce8d9d6)
+
 
 ## To check the logs of kube-proxy
 
@@ -98,7 +102,12 @@ KUBE-SEP-GEKJR4UBUI5ONAYW  all  --  anywhere             anywhere             /*
 $ cat /var/log/kube-proxy.log
 
 ```
+![Uploading image.png…]()
 
+
+## Kube-proxy (Default: IPTables)
+
+![image](https://github.com/user-attachments/assets/14b8c25b-56d5-483c-9c11-d6760a37c563)
 
 #### References Docs
 
