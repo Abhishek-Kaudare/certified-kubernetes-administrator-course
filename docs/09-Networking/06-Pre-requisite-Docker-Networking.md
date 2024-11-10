@@ -8,6 +8,7 @@ In this section, we will take a look at **Docker Networking**
 
 - Running docker container with `none` network
 
+If you want to completely isolate the networking stack of a container, you can use the `--network none` flag when starting the container. Within the container, only the loopback device is created.
 ```
 $ docker run --network none nginx
 ```
@@ -16,6 +17,8 @@ $ docker run --network none nginx
 
 - Running docker container with `host` network
 
+If you use the `host` network mode for a container, that container's network stack isn't isolated from the Docker host (the container shares the host's networking namespace), and the container doesn't get its own IP-address allocated. For instance, if you run a container which binds to port 80 and you use `host` networking, the container's application is available on port 80 on the host's IP address.
+
 ```
 $ docker run --network host nginx
 ```
@@ -23,6 +26,15 @@ $ docker run --network host nginx
 ## Bridge Network
 
 - Running docker container with `bridge` network
+
+In terms of networking, a bridge network is a Link Layer device which forwards traffic between network segments. A bridge can be a hardware device or a software device running within a host machine's kernel.
+
+In terms of Docker, a bridge network uses a software bridge which lets containers connected to the same bridge network communicate, while providing isolation from containers that aren't connected to that bridge network. The Docker bridge driver automatically installs rules in the host machine so that containers on different bridge networks can't communicate directly with each other.
+
+Bridge networks apply to containers running on the same Docker daemon host. For communication among containers running on different Docker daemon hosts, you can either manage routing at the OS level, or you can use an overlay network.
+
+When you start Docker, a default bridge network (also called `bridge`) with IP 172.17.0.0 is created automatically, and newly-started containers connect to it unless otherwise specified. You can also create user-defined custom bridge networks. User-defined bridge networks are superior to the default bridge network.
+
 
 ```
 $ docker run --network bridge nginx
