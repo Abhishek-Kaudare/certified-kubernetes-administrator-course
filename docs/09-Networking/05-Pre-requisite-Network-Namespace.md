@@ -288,7 +288,7 @@ $ ip netns exec blue ping 8.8.8.8
 ```
 ![image](https://github.com/user-attachments/assets/8f8d39ff-5fc0-463d-a5b8-fa04c6a9682f)
 
-- Adding port forwarding rule to the iptables
+- Adding port forwarding rule to the iptables for connection from the outside world to inside the network ns
 
 ```
 $ iptables -t nat -A PREROUTING --dport 80 --to-destination 192.168.15.2:80 -j DNAT
