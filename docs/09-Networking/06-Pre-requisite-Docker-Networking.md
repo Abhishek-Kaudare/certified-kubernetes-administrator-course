@@ -61,7 +61,7 @@ $ ip link show docker0
     link/ether 02:42:cf:c3:df:f5 brd ff:ff:ff:ff:ff:ff
 ```
 
-- With the help of `ip link add` command to type set `bridge` to `docker0`
+- Docker internally does this with the help of `ip link add` command to type set `bridge` to `docker0`
 
 ```
 $ ip link add docker0 type bridge
@@ -123,7 +123,14 @@ $ ip -n 04acb487a641 addr
        valid_lft forever preferred_lft forever
 ```
 
+The interface pairs on the docker bridge can be identified by their number odd and even form a pair.
+
+![image](https://github.com/user-attachments/assets/ae9684e9-c4a1-4bd8-82aa-3aa9abf1d165)
+
+
+
 ## Port Mapping
+![image](https://github.com/user-attachments/assets/a4198763-ac73-4e54-89a4-2fc5503c02d3)
 
 - Creating a docker container.
 
