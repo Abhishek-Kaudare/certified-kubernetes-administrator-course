@@ -4,6 +4,28 @@
 
 In this section, we will take a look at "CNI Weave in the Kubernetes Cluster"
 
+
+## Note: 
+
+Before going to the CNI weave lecture, we have an update for the Weave Net installation link. They have announced the end of service for Weave Cloud.
+
+To know more about this, read the blog from the link below: –
+
+https://www.weave.works/blog/weave-cloud-end-of-service
+
+As an impact, the old weave net installation link won’t work anymore: –
+
+```kubectl apply -f “https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d ‘\n’)”```
+
+Instead of that, use the latest link below to install the weave net: –
+
+```kubectl apply -f https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml```
+
+Reference links: –
+
+1. https://www.weave.works/docs/net/latest/kubernetes/kube-addon/#-installation
+2. https://github.com/weaveworks/weave/releases
+
 ## Deploy Weave
 
 - Installing [weave net](https://www.weave.works/docs/net/latest/kubernetes/kube-addon/) onto the Kubernetes cluster with a single command.
