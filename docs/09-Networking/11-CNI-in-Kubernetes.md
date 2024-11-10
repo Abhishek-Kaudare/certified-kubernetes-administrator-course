@@ -3,8 +3,12 @@
   - Take me to [Lecture](https://kodekloud.com/topic/cni-in-kubernetes/)
 
 In this section, we will take a look at **Container Networking Interface (CNI) in Kubernetes**
+![image](https://github.com/user-attachments/assets/2b7f1bcb-e4fa-411e-9176-e194d1419eb1)
 
 ## Configuring CNI
+
+![image](https://github.com/user-attachments/assets/2c060db2-7528-4e6a-96ff-7bd742aaa165)
+
 
 ![net-1](../../images/net1.PNG)
 
@@ -38,6 +42,7 @@ $ ls /opt/cni/bin
 ls /etc/cni/net.d
 
 ```
+![image](https://github.com/user-attachments/assets/ef50bcaf-44fd-4d25-961a-73e7c0c927d5)
 
 ## Format of Configuration File  
 
