@@ -37,7 +37,7 @@
    ```
    </details>
 
-4. <details>
+3. <details>
    <summary>What is the IP Range configured for the services within the cluster?</summary>
 
    ```
@@ -49,9 +49,22 @@
    ```
    10.96.0.0/12
    ```
+
+   OR
+
+   ```
+   cat /etc/kubernetes/manifests/kube-apiserver.yaml   | grep cluster-ip-range
+   ```
+
+   OR
+   ```
+   ps aux | grep kube-api | grep  --color cluster-ip-range
+   ```
+   ![image](https://github.com/user-attachments/assets/cdc8b39f-29f9-4c9c-b120-f03593877b19)
+
    </details>
 
-5. <details>
+4. <details>
    <summary>How many kube-proxy pods are deployed in this cluster?</summary>
 
    ```
@@ -61,7 +74,7 @@
    Count the results
    </details>
 
-6. <details>
+5. <details>
    <summary>What type of proxy is the kube-proxy configured to use?</summary>
 
    From the output of the above question, you have two kube-proxy pods, e.g.
@@ -77,6 +90,12 @@
    ```
    k logs -n kube-system kube-proxy-rtr8p
    ```
+
+   OR
+
+   Check logs at /var/log/pods/kube-system_kube-proxy*/kube-proxy/0.log
+   ![image](https://github.com/user-attachments/assets/7b3bbade-7afb-47ff-ba0b-be17612ab434)
+
    </details>
 
 7. <details>
