@@ -2,6 +2,9 @@
 
   - Take me to [Lecture](https://kodekloud.com/topic/pod-networking/)
 
+![image](https://github.com/user-attachments/assets/709f9a76-7452-43df-a82c-77d6d1d76dbe)
+
+
 In this section, we will take a look at **Pod Networking**
 
 
@@ -101,7 +104,9 @@ $ ip route add 10.244.2.2 via 192.168.1.12
 ![net-13](../../images/net13.PNG)
 
 
+Whenever a container is created the Container Runtime follows following steps:
 
+![image](https://github.com/user-attachments/assets/4ca34f21-8594-46da-8c1a-ddcb397ff90b)
 
 
 
