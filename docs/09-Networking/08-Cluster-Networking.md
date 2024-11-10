@@ -6,7 +6,15 @@ In this section, we will take a look at **Pre-requisite of the Cluster Networkin
 
 - Set the unique hostname.
 - Get the IP addr of the system (master and worker node).
+![image](https://github.com/user-attachments/assets/4d48521a-5c65-4ab1-ba90-4d1c515f0508)
+
 - Check the Ports.
+  - Master and Worker
+    ![image](https://github.com/user-attachments/assets/805bd58e-3638-4aee-9f5a-589c14dd9eb2)
+  - Multiple masters
+    ![image](https://github.com/user-attachments/assets/0c4abdf8-aa01-44c9-9fbd-59fc0d6b3aa6)
+
+
 
 ## IP and Hostname
 
@@ -38,6 +46,7 @@ $ netstat -nltp
 ```
 
 
+![image](https://github.com/user-attachments/assets/0ec612e5-33b8-4c7e-a7a4-2482b806a13a)
 
 #### References Docs
 
