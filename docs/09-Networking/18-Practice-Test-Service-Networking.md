@@ -30,9 +30,14 @@
    ```
    10.244.0.0/16
    ```
+
+   OR
+   ```
+   k logs weave-net-vcmcj -n kube-system | grep "ipalloc-range"
+   ```
    </details>
 
-3. <details>
+4. <details>
    <summary>What is the IP Range configured for the services within the cluster?</summary>
 
    ```
@@ -46,7 +51,7 @@
    ```
    </details>
 
-4. <details>
+5. <details>
    <summary>How many kube-proxy pods are deployed in this cluster?</summary>
 
    ```
@@ -56,7 +61,7 @@
    Count the results
    </details>
 
-5. <details>
+6. <details>
    <summary>What type of proxy is the kube-proxy configured to use?</summary>
 
    From the output of the above question, you have two kube-proxy pods, e.g.
@@ -74,7 +79,7 @@
    ```
    </details>
 
-6. <details>
+7. <details>
    <summary>How does this Kubernetes cluster ensure that a kube-proxy pod runs on all nodes in the cluster?</summary>
 
    ```
