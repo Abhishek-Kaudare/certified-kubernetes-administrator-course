@@ -2,6 +2,7 @@
 
   - Take me to [Lecture](https://kodekloud.com/topic/ingress/)
 
+> Think of ingress as layer7 builtin k8s cluster that can be configured using native k8s primitives
 In this section, we will take a look at **Ingress**
 
 - Ingress Controller
