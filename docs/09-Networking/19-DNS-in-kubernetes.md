@@ -59,6 +59,8 @@ Server: nginx/1.19.2
 
 web-service.default.svc.cluster.local
 ```
+![image](https://github.com/user-attachments/assets/555e07a1-f56e-41c6-bb35-dc947db6a05b)
+
 - Pod, Service is located in the `apps` namespace
 
 ```
@@ -86,6 +88,8 @@ HTTP/1.1 200 OK
 Server: nginx/1.19.2
 
 ```
+`nginx-service.apps.svc.cluster.local` is the fqdn of the service in above example.
+![image](https://github.com/user-attachments/assets/9f9195dd-f973-4862-9d29-28efd75f36b8)
 
 
 
