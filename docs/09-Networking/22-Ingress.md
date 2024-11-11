@@ -214,7 +214,14 @@ spec:
               number: 80
 ```
 
-
+Now, in k8s version 1.20+, we can create an Ingress resource in the imperative way like this:-
+```
+Format - kubectl create ingress  --rule="host/path=service:port"**
+```
+Example -
+```
+kubectl create ingress ingress-test --rule="wear.my-online-store.com/wear*=wear-service:80"**
+```
 
 
 
