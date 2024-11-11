@@ -13,6 +13,7 @@ NAME                                      READY   STATUS    RESTARTS   AGE
 coredns-66bff467f8-2vghh                  1/1     Running   0          53m
 coredns-66bff467f8-t5nzm                  1/1     Running   0          53m
 ```
+![image](https://github.com/user-attachments/assets/fe4148d8-e224-4e42-a22f-20416a743aa0)
 
 ## To view the Deployment
 
@@ -54,6 +55,10 @@ Corefile:
     reload
 }
 ```
+![image](https://github.com/user-attachments/assets/ba8f1331-61f6-426c-81c5-b219d2ea1722)
+
+- `pods insecure` entry to the k8s plugin enables the pods dns entry
+- `forward . /etc/resolv.conf`/`proxy . /etc/resolv.conf` entry forwards any entry that doesn't match to the nameserver mention in the `/etc/resolv.conf`
 
 ## To view the Service 
 
@@ -72,6 +77,9 @@ clusterDNS:
 clusterDomain: cluster.local
 
 ```
+![image](https://github.com/user-attachments/assets/7ca9908e-4630-43ed-867b-f54d1e4ba77a)
+
+Whenever a CoreDns is configured a service for the same is created, kubelet configures the IP of this service as the nameserver in all the pods.
 
 ## To view the fully qualified domain name
 
@@ -100,6 +108,9 @@ search default.svc.cluster.local svc.cluster.local cluster.local
 options ndots:5
 pod "test-pod" deleted
 ```
+![image](https://github.com/user-attachments/assets/90f055a4-dace-4ba6-95eb-8489fc5f5123)
+
+We can get the service by using the service name, service_name.ns, service_name.ns.svc. This is possible as the resolv.conf also has search param with all the three.
 
 ## Resolve the Pod 
 
