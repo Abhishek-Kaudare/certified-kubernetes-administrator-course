@@ -12,6 +12,9 @@ In this section, we will take a look at **Ingress**
 
 - Deployment of **Ingress Controller**
 
+<img width="1172" alt="image" src="https://github.com/user-attachments/assets/a7a76df7-187f-4aef-99fa-db9d3864bb16">
+
+
 ## ConfigMap
 
 ```
@@ -110,14 +113,16 @@ $ kubectl get service
 ```
 Ingress-wear.yaml
 
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ingress-wear
 spec:
      backend:
-        serviceName: wear-service
-        servicePort: 80
+        service:
+          name: wear-service
+          port:
+            number: 80
 ```
 
 - To create the ingress resource
@@ -138,7 +143,7 @@ ingress-wear   <none>   *                 80      18s
 - 1 Rule and 2 Paths.
 
 ```
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ingress-wear-watch
@@ -148,12 +153,16 @@ spec:
       paths:
       - path: /wear
         backend:
-          serviceName: wear-service
-          servicePort: 80
+          service
+            name: wear-service
+            port:
+              number: 80
       - path: /watch
         backend:
-          serviceName: watch-service
-          servicePort: 80
+          service:
+            name: watch-service
+            port:
+              number: 80
 ```
 - Describe the earlier created ingress resource
 
@@ -181,7 +190,7 @@ Events:
 ```
 # Ingress-wear-watch.yaml
 
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ingress-wear-watch
@@ -191,14 +200,18 @@ spec:
     http:
       paths:
       - backend:
-          serviceName: wear-service
-          servicePort: 80
+          service
+            name: wear-service
+            port:
+              number: 80
   - host: watch.my-online-store.com
     http:
       paths:
       - backend:
-          serviceName: watch-service
-          servicePort: 80
+          service:
+            name: watch-service
+            port:
+              number: 80
 ```
 
 
