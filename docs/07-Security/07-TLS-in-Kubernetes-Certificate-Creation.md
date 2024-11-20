@@ -49,9 +49,10 @@ In this section, we will take a look at TLS certificate creation in kubernetes
   
 #### We follow the same procedure to generate client certificate for all other components that access the kube-apiserver.
 
-  ![crt1](../../images/crt1.PNG)
+  ![image](https://github.com/user-attachments/assets/a7df09d2-94f3-491a-bf3e-a3de6a0d8451)
   
-  ![crt2](../../images/crt2.PNG)
+  ![image](https://github.com/user-attachments/assets/261f6d26-eb84-48fd-b2c2-2b8d7902db34)
+
   
   ![crt3](../../images/crt3.PNG)
    
