@@ -64,11 +64,12 @@ In this section, we will take a look at TLS certificate creation in kubernetes
 
   ![etc1](../../images/etc1.PNG)
   
-  ![etc2](../../images/etc2.PNG)
+  ![image](https://github.com/user-attachments/assets/d9746aab-d14a-4fa2-b3d4-2bfaf2263285)
+
   
 ## Kube-apiserver certificate
 
-  ![api1](../../images/api1.PNG)
+  ![image](https://github.com/user-attachments/assets/b734f754-9151-44ee-af69-ebd924483680)
   
   ![api2](../../images/api2.PNG)
   
