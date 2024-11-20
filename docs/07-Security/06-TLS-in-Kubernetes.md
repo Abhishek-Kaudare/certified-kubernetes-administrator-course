@@ -13,3 +13,6 @@ In this section, we will take a look at TLS in kubernetes
 
   ![certs](../../images/certs.PNG)
   
+K8s can have two CA server one for clients and another one for server components:
+![image](https://github.com/user-attachments/assets/60b2045c-c0fc-4781-abb2-8b84ffc3822a)
+
