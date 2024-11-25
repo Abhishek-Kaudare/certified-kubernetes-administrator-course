@@ -36,8 +36,8 @@ In this section, we will take a look at how to manage certificates and certifica
     request:
       <certificate-goes-here>
   ```
-  $ cat jane.csr |base64 
-  $ kubectl create -f jane.yaml
+  cat jane.csr | base64 -w 0
+  kubectl create -f jane.yaml
   ```
  ![csr1](../../images/csr1.PNG)
   
