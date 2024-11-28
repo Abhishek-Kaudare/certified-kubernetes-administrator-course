@@ -11,6 +11,7 @@ In this section, we will take a look at **Storage Class**
 #### Static Provisioning
 
 ![class-18](../../images/class18.PNG)
+![image](https://github.com/user-attachments/assets/b0cd787c-b077-4ba0-89c3-873513ab5002)
 
 
 #### Dynamic Provisioning
